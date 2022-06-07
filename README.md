@@ -11,15 +11,25 @@ Second, among the 22 selected PGS models derived from the 22 GWAS, 11 and 7 were
 
 Lastly, the European and East Asian iPGS models were evaluated in the European (a European prospective cohort data with 102,099 subjects including 1,128 incident IS cases) and East Asian (an East-Asian case-control data with 1,470 AIS cases and 40,459 controls) model evaluation datasets.
 
-<img width="1082" alt="スクリーンショット 2022-06-07 19 04 40" src="https://user-images.githubusercontent.com/31917903/172354128-bbfb3dcf-bcee-4415-a9ec-29cbca8364c8.png">
+<img width="1082" alt="Derivation and evaluation of iPGS models for Europeans and East Asians" src="https://user-images.githubusercontent.com/31917903/172354128-bbfb3dcf-bcee-4415-a9ec-29cbca8364c8.png">
 AS indicates any stroke; AIS, any ischemic stroke; LAS, large artery stroke; SVS, small vessel stroke; CES, cardioembolic stroke; AF, atrial fibrillation; CAD, coronary artery disease; T2D, type 2 diabetes; SBP, systolic blood pressure; DBP, diastolic blood pressure; TC, total cholesterol; LDL-C, low-density lipoprotein cholesterol; HDL-C, high-density lipoprotein cholesterol; TG, triglyceride; BMI, body mass index; AUC indicates area under the curve; EUR, Europeans; EAS, East-Asian; GWAS, genome-wide association study; LD, linkage disequilibrium; PGS, polygenic score.
 
 ## About this repository
 This repository presents the sample code used in the second step (i.e., the construction of iPGS models). 
-Note that the code requires the access to the individual-level data, and therefore, was modified file paths for each study institute. 
+Note that the code requires the access to the individual-level data, and therefore, was modified file paths for each research institute. 
 
-## Input score file format
-Our code is written in R. 
+## `training-weights.R`
+This code is written in R. 
+This code loads a binary outcome, polygenic scores, covariates, and principal components from files. 
+Multiple polygenic scores may be loaded to combine them into a iPGS model. 
+Our code calculates a weight for each input polygenic model to construct iPGS model. 
+The results will be output to four files:
+- `scaling-factors.txt`
+- `metaGRS.auc-best.model.beta`
+- `metaGRS.auc-best.model.param`
+- `glm.beta`
+
+### Input score file format
 The code assumes that polygenic score values are stored in the [sscore file format (produced by PLINK2 --score command)](https://www.cog-genomics.org/plink/2.0/formats#sscore). Our code recognizes the 4-th column (`SCORE1_AVG`) as polygenic scores. 
 
 ```text:example-of-sscore-format
@@ -35,17 +45,8 @@ TEST_NA18946	2890	794.639	0.00308176
 TEST_NA18947	2890	846.24	0.00218907
 ```
 
-## Sample code in R
-Our code loads a binary outcome, polygenic scores, covariates, and principal components from files. 
-Multiple polygenic scores may be loaded to combine them into a iPGS model. 
-Our code calculates a weight for each input polygenic model to construct iPGS model. 
-The results will be output to four files:
-- `scaling-factors.txt`
-- `metaGRS.best.model.beta`
-- `metaGRS.best.model.param`
-- `glm.beta`
-
-
+## `construct-iPGS.pl`
+This Perl code combines multiple input PGS models into an iPGS model using the outputs of `training-weights.R`. 
 
 
 
