@@ -25,8 +25,8 @@ Multiple polygenic scores may be loaded to combine them into a iPGS model.
 Our code calculates a weight for each input polygenic model to construct iPGS model. 
 The results will be output to four files:
 - `scaling-factors.txt`
-- `metaGRS.auc-best.model.beta`
-- `metaGRS.auc-best.model.param`
+- `iPGS.auc-best.model.beta`
+- `iPGS.auc-best.model.param`
 - `glm.beta`
 
 ### Input score file format
