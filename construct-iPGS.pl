@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-BEGIN{ push(@INC, $ENV{LOCAL_PERL_MODULES}); }
 use strict;
 use warnings;
 use Getopt::Std;
