@@ -14,6 +14,8 @@ Lastly, the European and East Asian iPGS models were evaluated in the European (
 <img width="1082" alt="Derivation and evaluation of iPGS models for Europeans and East Asians" src="https://user-images.githubusercontent.com/31917903/172354128-bbfb3dcf-bcee-4415-a9ec-29cbca8364c8.png">
 AS indicates any stroke; AIS, any ischemic stroke; LAS, large artery stroke; SVS, small vessel stroke; CES, cardioembolic stroke; AF, atrial fibrillation; CAD, coronary artery disease; T2D, type 2 diabetes; SBP, systolic blood pressure; DBP, diastolic blood pressure; TC, total cholesterol; LDL-C, low-density lipoprotein cholesterol; HDL-C, high-density lipoprotein cholesterol; TG, triglyceride; BMI, body mass index; AUC indicates area under the curve; EUR, Europeans; EAS, East-Asian; GWAS, genome-wide association study; LD, linkage disequilibrium; PGS, polygenic score.
 
+This figure is a copy from the GIGASTROKE project paper (https://doi.org/10.21203/rs.3.rs-1175817/v1). 
+
 ## About this repository
 This repository presents the sample code used in the second step (i.e., the construction of iPGS models). 
 Note that the code requires the access to individual-level data, and therefore, file paths should be modified for each research institute. 
